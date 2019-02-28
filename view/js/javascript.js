@@ -12,8 +12,12 @@ articulos.forEach(element => {
 function mostrarPost(element) {
 
     let id = element.id;
+    
     var theObject = new XMLHttpRequest();
-    theObject.open('POST', '?c=News&a=PaginaNoticia&id_noticia=' + id, true);
+
+    console.log(theObject.getAllResponseHeaders());
+    
+    theObject.open('POST', '?/News/PaginaNoticia', true);
     theObject.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     theObject.onreadystatechange = function () {
         //    document.getElementById("select-centros").innerHTML = theObject.responseText;

@@ -1,14 +1,14 @@
 
 <?php 
 	if(empty($_SESSION["user"])){
-		header("Location:?c=loginregister&a=Login");
+		header("Location:?/loginregister/Login");
 	}
 	else{
 ?>
 
 <section class="form-noticia-block">
 
-	<form action="?c=News&a=Guardar" method="POST" name="formRegister" enctype="multipart/form-data" >
+	<form action="?/News/Guardar" method="POST" name="formRegister" enctype="multipart/form-data" >
 
 
 		<div id="bloque-editor"> 

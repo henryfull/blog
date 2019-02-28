@@ -8,8 +8,10 @@ print_r($controller . "-". $function . "-" . $parametro);
 */
 		// cuando entramos la primera comprobamos si hemos iniciado sesion o no
 		$url = addslashes($_SERVER['QUERY_STRING']);
-		$url = str_replace('?', '', $url);
+		$caracters = array("?", "&");
+		$url = str_replace($caracters, '', $url);
 		$url = explode("/", $url);
+		unset($url[0]);
 
 		if(empty($_SESSION["user"])){
 			//Sino hemos iniciado sesion no llevara a un apartado a donde podemos seleccionar la accion deseada, login o register	
@@ -40,8 +42,11 @@ print_r($controller . "-". $function . "-" . $parametro);
 				require_once "controller/$controller.controller.php";
 				$controller = ucwords($controller) . 'Controller';
 				$controller = new $controller;
-
+				
 				// Llama la accion
+				if (count($url)>2) {
+					$_REQUEST["id_noticia"] = $url[3];
+				}
 
 				call_user_func( array( $controller, $accion ) );
 

@@ -2,7 +2,7 @@
 
 ?>
 <section class="login-block">
-    <form action="?c=loginregister&a=getRegisterUser" method="POST" name="formRegister">
+    <form action="?/loginregister/getRegisterUser" method="POST" name="formRegister">
 
         <input type="text" name="username" placeholder="Username" require>
         <input type="password" name="password" placeholder="Contraseña" require>
@@ -22,6 +22,6 @@
     <?php	
 }
 ?>
-    <a href="?c=Common&a=Index" class="return">volver</a>
+    <a href="?/Common/Index" class="return">volver</a>
     <script src="view/js/login.js"></script>
 </section> 

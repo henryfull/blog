@@ -43,10 +43,10 @@ class LoginregisterController
     public function checkUser()
     {
         if ($this->model->checkUsers($_REQUEST["user"], $_REQUEST["pass"])) {
-            header("Location:?c=News&a=Index");
+            header("Location:?/News/Index");
         } else {
             unset($_SESSION["user"]);
-            header("Location:?c=common&a=Index");
+            header("Location:?/common/Index");
         }
     }
 

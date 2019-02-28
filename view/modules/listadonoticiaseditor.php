@@ -1,10 +1,10 @@
 <li class="list">
     <article>
         <div class="opciones-noticia">
-            <a href="?c=News&a=Eliminar&id_noticia=<?php echo $r["id_noticia"];?>">
+            <a href="?/News/Eliminar&id_noticia=<?php echo $r["id_noticia"];?>">
             <span class="Icon Icon--delete "></span>
             </a>
-            <a href="?c=News&a=Crud&id_noticia=<?php echo $r["id_noticia"]; ?>"><span class="Icon Icon--editPencil "></span>
+            <a href="?/News/Crud/<?php echo $r["id_noticia"]; ?>"><span class="Icon Icon--editPencil "></span>
             <a id="<?php echo $r["id_noticia"]; ?>" class="link-post"><span class="Icon Icon--info "></span></a> 
 
 <!--            <a id="linkVistaProducto" href="?c=News&a=PaginaNoticia&id_noticia=<?php echo $r["id_noticia"]; ?>"><span class="Icon Icon--info "></span></a> 

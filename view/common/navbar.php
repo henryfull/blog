@@ -14,12 +14,12 @@
 
             <?php 
             if (empty($_SESSION["user"])) {
-                echo ' <li> <a href="?c=loginregister&a=Login" class=""><span class="Icon Icon--person"></span> Login</a></li>';
+                echo ' <li> <a href="?/loginregister&/Login" class=""><span class="Icon Icon--person"></span> Login</a></li>';
             } else {
                 echo '  <li><button class="Icon Icon--pen "></button></li>';
 
                 if($_SESSION["numuser"] != 2){
-                    print ' <li><a href="?c=news&a=FormNoticia" class="" ><span class="Icon Icon--add"></span></a></li>';
+                    print ' <li><a href="?/news&/FormNoticia" class="" ><span class="Icon Icon--add"></span></a></li>';
                 }
    
                 echo    '<li>
@@ -33,11 +33,11 @@
                 echo    '<li><a href="" ><span class="Icon Icon--person"></span> Perfil</a></li>';
                 echo    '<li> <a href="?/news/Index" class=""><span class="Icon Icon--summary"></span> Mis Noticias</a></li>';
                 
-                echo    '<li> <a href="?c=news&a=Index" class=""><span class="Icon Icon--summary"></span> Mis Noticias</a></li>';
-                echo    '<li><a href="?c=news&a=FormNoticia" class="" ><span class="Icon Icon--add"></span>Añadir Noticia</a></li>';
+                echo    '<li> <a href="?/news&/Index" class=""><span class="Icon Icon--summary"></span> Mis Noticias</a></li>';
+                echo    '<li><a href="?/news&/FormNoticia" class="" ><span class="Icon Icon--add"></span>Añadir Noticia</a></li>';
                 echo    '<li><a href="" ><span class="Icon Icon--filter"></span> Configuracion</a></li>';
                 echo    '<hr>
-                        <li><a href="?c=Common&a=CerrarSesion" class=""><span class="Icon Icon--close"></span> Cerrar Sesion</a></li>';
+                        <li><a href="?/Common&/CerrarSesion" class=""><span class="Icon Icon--close"></span> Cerrar Sesion</a></li>';
             }
             ?>
 
