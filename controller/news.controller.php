@@ -52,7 +52,6 @@ class NewsController{
     public function Crud(){
         $prod = new NoticiasDAO();
         $keys = "";
-        echo $_REQUEST['param'];
         if(isset($_REQUEST['id_noticia'])){
             $prod = $this->model->obtenerId();
             $keys = $this->keywordsNoticia();
@@ -92,7 +91,6 @@ class NewsController{
 
     // Te devuelve los datos de una noticia solicitada y los convierte en Json para tratarlos en Javascript para que se vea a atraves de un modal
     public function PaginaNoticia(){
-        $_REQUEST['id_noticia'] = 68;
         if(isset($_REQUEST['id_noticia'])){
             $noticia = $this->model->obtenerId();
         }

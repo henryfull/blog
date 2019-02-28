@@ -203,7 +203,7 @@ function actionButtons(event) {
 
     // Style Text
     if (event.target.id == "btn-bold") {
-        editable.execCommand("bold", false, "");
+        document.execCommand('bold', false, '');        
     }
     else if (event.target.id == "btn-emphasis") {
         document.execCommand('italic', false, '');
@@ -214,7 +214,6 @@ function actionButtons(event) {
     else if (event.target.id == "btn-strikethrough") {
         document.execCommand("strikethrough", false, '');
     }
-
     else if (event.target.id == "btn-foreColor") {
         document.execCommand("foreColor", false, document.getElementById("btn-foreColor").value);
     }
@@ -256,7 +255,6 @@ function actionButtons(event) {
     else if (event.target.id == "btn-heading3") {
         document.execCommand("heading", false, "H3");
     }
-
     else if (event.target.id == "btn-heading4") {
         document.execCommand("heading", false, "H4");
     }
@@ -313,27 +311,18 @@ function muestraOculta(e) {
 
     if (e.target.classList.contains("collapse")) {
         var tagBlock = e.target;
-
         tagBlock = tagBlock.parentNode.lastElementChild;
         console.log(tagBlock);
 
         if (tagBlock.style.display == "block" || tagBlock.style.display == "") {
             tagBlock.style.display = "none";
             e.target.classList.remove("active");
-
         }
         else {
             tagBlock.style.display = "block";
             e.target.classList.add("active");
         }
-
     }
-
-
-
-
-
-
 
 }
 

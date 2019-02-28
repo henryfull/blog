@@ -9,9 +9,9 @@ print_r($controller . "-". $function . "-" . $parametro);
 		// cuando entramos la primera comprobamos si hemos iniciado sesion o no
 		$url = addslashes($_SERVER['QUERY_STRING']);
 		$caracters = array("?", "&");
-		$url = str_replace($caracters, '', $url);
+		$url = str_replace("?", '', $url);
 		$url = explode("/", $url);
-		unset($url[0]);
+		$url = array_slice($url, 1);
 
 		if(empty($_SESSION["user"])){
 			//Sino hemos iniciado sesion no llevara a un apartado a donde podemos seleccionar la accion deseada, login o register	
@@ -30,22 +30,19 @@ print_r($controller . "-". $function . "-" . $parametro);
 
 			else {
 
-
 				// Obtenemos el controlador que queremos cargar
 
-				$controller = strtolower($url[1]);
-				$accion = isset($url[2]) ? $url[2] : 'Index';
+				$controller = strtolower($url[0]);
+				$accion = isset($url[1]) ? $url[1] : 'Index';
 
 				// Instanciamos el controlador
-
-
 				require_once "controller/$controller.controller.php";
 				$controller = ucwords($controller) . 'Controller';
 				$controller = new $controller;
 				
 				// Llama la accion
 				if (count($url)>2) {
-					$_REQUEST["id_noticia"] = $url[3];
+					$_REQUEST["id_noticia"] = $url[2];
 				}
 
 				call_user_func( array( $controller, $accion ) );
@@ -57,8 +54,8 @@ print_r($controller . "-". $function . "-" . $parametro);
 		else{
 								
 			?>
-			<form action="controller/loginRegisterController.php" method="POST" class="block-logout" >
-				<input type="submit" value="LOGOUT" class="enviar" name="logout" /> 
+				<form action="controller/loginRegisterController.php" method="POST" class="block-logout" >
+					<input type="submit" value="LOGOUT" class="enviar" name="logout" /> 
 			</form>
 			<?php
 			

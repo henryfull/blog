@@ -14,7 +14,7 @@ function mostrarPost(element) {
     let id = element.id;
     
     var theObject = new XMLHttpRequest();
-
+    
     console.log(theObject.getAllResponseHeaders());
     
     theObject.open('POST', '?/News/PaginaNoticia', true);

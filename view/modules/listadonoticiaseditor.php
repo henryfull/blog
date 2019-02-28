@@ -1,7 +1,7 @@
 <li class="list">
     <article>
         <div class="opciones-noticia">
-            <a href="?/News/Eliminar&id_noticia=<?php echo $r["id_noticia"];?>">
+            <a href="?/News/Eliminar/<?php echo $r["id_noticia"];?>">
             <span class="Icon Icon--delete "></span>
             </a>
             <a href="?/News/Crud/<?php echo $r["id_noticia"]; ?>"><span class="Icon Icon--editPencil "></span>
