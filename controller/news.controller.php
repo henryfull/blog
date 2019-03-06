@@ -33,6 +33,11 @@ class NewsController{
             header('Location:?c=Common&a=Index');
         }
     }
+    public function Api(){
+
+            require_once 'view/api.php';
+
+    }
 
     // Te lleva la vista del editor de texto de para generar la noticia
 	public function FormNoticia(){
@@ -178,6 +183,14 @@ class NewsController{
 
 // 45, 
 
+    }
+
+    private function printJson($array){
+        echo '<code>' . json_encode($array) . '</code>';
+    }
+    
+    private function error($mensaje){
+        echo '<code>' . json_encode(array('mensaje' => $mensaje)) . '</code>';
     }
 
 

@@ -2,7 +2,6 @@
 
 
 <div id="block-edit">
-
     <div id="titles">
         <input type="hidden" name="id_noticias" value='<?php empty($prod["id_noticia"])? print $prod["id_noticia"] = "": print $prod["id_noticia"]; ?>' />
         <input type="hidden" name="username" value="<?php $_SESSION["username"];?>" />

@@ -30,7 +30,7 @@
                 echo    '<li> <a href="?/news/Index" class=""><span class="Icon Icon--summary"></span> Mis Noticias</a></li>';
                 
                 echo    '<li><a href="?/news/FormNoticia" class="" ><span class="Icon Icon--add"></span>Añadir Noticia</a></li>';
-                echo    '<li><a href="" ><span class="Icon Icon--filter"></span> Configuracion</a></li>';
+                echo    '<li><a href="?/news/Api" ><span class="Icon Icon--filter"></span> Configuracion</a></li>';
                 echo    '<hr>
                         <li><a href="?/Common/CerrarSesion" class=""><span class="Icon Icon--close"></span> Cerrar Sesion</a></li>';
             }

@@ -45,9 +45,7 @@ class NoticiasDao {
 	// Inserta una keyword en la base de datos
 	public function insertKeywordsNoticia($keyword){
 		$data_source = new DataSource();
-
-		$sql = "INSERT INTO keywords (keyword) VALUES ( :keyword)";
-		
+		$sql = "INSERT INTO keywords (keyword) VALUES ( :keyword)";	
 		$resultado = $data_source->ejecutarActualizacion($sql,array(
 			':keyword' => $keyword
 			)
