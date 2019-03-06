@@ -15,7 +15,7 @@
                 echo '  <li><button class="Icon Icon--pen "></button></li>';
 
                 if($_SESSION["numuser"] != 2){
-                    print ' <li><a href="?news/FormNoticia" class="" ><span class="Icon Icon--add"></span></a></li>';
+                    print ' <li><a href="?/news/FormNoticia" class="" ><span class="Icon Icon--add"></span></a></li>';
                 }
    
                 echo    '<li>
