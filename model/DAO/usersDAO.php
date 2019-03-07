@@ -4,8 +4,8 @@ require_once("model/TO/usersTO.php");
 require_once("model/dataSource.php");
 
 
-class UsersDAO {
-	public function __CONSTRUCT()
+class UsersDAO implements interfaceUserDAO {
+    public function __construct()
     {
         $this->data_source = new DataSource();
         //    $this->cart = new Cart();
@@ -52,6 +52,12 @@ class UsersDAO {
 
 	}
 
+}
+
+interface interfaceUserDAO {
+    public function __construct();
+    public function insertUser($user);
+    public function comprobarLogin();
 }
 		
 ?>

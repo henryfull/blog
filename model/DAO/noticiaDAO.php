@@ -2,13 +2,13 @@
 require_once("model/conexion.php");
 require_once("model/TO/noticiasTO.php");
 require_once("model/dataSource.php");
+require_once("model/DAO/interfaceDAO.php");
 
-class NoticiasDao
-{
+class NoticiasDao implements interface_DAO{
+    
 	public function __CONSTRUCT()
     {
         $this->data_source = new DataSource();
-        //    $this->cart = new Cart();
     }
 
 	// ###############################
@@ -222,11 +222,12 @@ class NoticiasDao
 		cuando se publique una noticia tambien se haga todo lo demas.
 	*/
 
-	public function transactionUpdate($newKeywords, $arrayKeywords, $idnoticia, $noticia)
-	{
-		try {
 
-			$this->data_source->beginTransaction();
+	public function transactionUpdate($newKeywords, $arrayKeywords, $idnoticia, $noticia) {
+        
+        try {
+
+        	$this->data_source->beginTransaction();
 
 			// Inserta las nuevas palabras claves en la tabla de keywords
 			foreach ($newKeywords as $value) {
@@ -249,7 +250,8 @@ class NoticiasDao
 						}
 					}
 				}
-			} else {
+            } 
+            else {
 				$this->insertNoticia($noticia);
 				$maxid = implode($this->maxIdNoticia()[0]);
 
@@ -263,7 +265,8 @@ class NoticiasDao
 			}
 
 			$this->data_source->commit();
-		} catch (Exception $e) {
+        } 
+        catch (Exception $e) {
 			$this->data_source->rollBack();
 			echo "Fallo: " . $e->getMessage();
 		}
