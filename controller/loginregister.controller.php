@@ -14,14 +14,14 @@ class LoginregisterController
     public function Index()
     {
         require_once 'view/common/header.php';
-        require_once 'view/register.php';
+        require_once 'view/account/register.php';
         require_once 'view/common/footer.php';
     }
 
     public function Login()
     {
         require_once 'view/common/header.php';
-        require_once 'view/login.php';
+        require_once 'view/account/login.php';
         require_once 'view/common/footer.php';
     }
 

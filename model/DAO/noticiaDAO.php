@@ -216,11 +216,11 @@ class NoticiasDao
 		return $resultado;
 	}
 
-	// 
+	/* 
 		Cuando se publica una noticia  se tiene que validar que tambiebn se publiquen sus palabras clave y 
 		para ellos a traves de una transaccion con beginTransaction, el commit y el rollBack se garantiza que
 		cuando se publique una noticia tambien se haga todo lo demas.
-	
+	*/
 
 	public function transactionUpdate($newKeywords, $arrayKeywords, $idnoticia, $noticia)
 	{
