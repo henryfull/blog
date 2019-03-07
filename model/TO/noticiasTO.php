@@ -20,6 +20,11 @@
 		private $fechaModificacion;	// fecha de la modificacion de la noticia
 		private $fechaPublicacion;	// fecha de la publicacion de la noticia
 		
+
+		public function __GET($k) { return $this->$k; }
+		public function __SET($k,$v) { return $this->$k = $v; }
+
+
 		// constructor para conectar con la base de datos a traves de objetos, en este caso con PDO
 		
 	//	public function __construct(){}

@@ -72,6 +72,7 @@ function imagenSeleccionada(event) {
         const element = galery[i];
         if (element.checked == true) {
             console.log(element.getAttribute("id"));
+            
             document.getElementById("fileToUploadSecundary").setAttribute("value",element.getAttribute("id") );
             let modal = document.getElementsByClassName("modal")[0];
             modal.style.display = "none";

@@ -55,8 +55,8 @@ class BusinessObject
     public function eliminarFotoGaleria($id, $url)
     {
         $noticia = new Noticias();
-        $noticia->setidNoticia($id);
-        $noticia->setImage($url);
+        $noticia->__SET('idNoticia',($id));
+        $noticia->__SET('image',($url));
         return $this->noticiasDao->actualizarFotoNoticia($noticia);
     }
 
@@ -72,31 +72,31 @@ class BusinessObject
 
 
         empty($_POST["id_noticias"]) ? $id = 0 : $id = $_POST["id_noticias"];
-        empty($_POST["keywords-text"]) ? $noticia->setKeywords("noticias") : $noticia->setKeywords($_POST["keywords-text"]);
+        empty($_POST["keywords-text"]) ? $noticia->__SET('keywords',("noticias")) : $noticia->__SET('keywords',($_POST["keywords-text"]));
         empty($_POST["id_noticias"]) ? $id = 0 : $id = $_POST["id_noticias"];
     //    ($_SESSION["numuser"]) == 2 ? $noticia->setEditor($_SESSION["username"]) : $noticia->setEditor("");
         
 
         if ($_SESSION["numuser"] == 2) {
-            $noticia->setFechaPublicacion($_POST["fecha_publicacion"]);
-            $noticia->setEditor($_SESSION["username"]);
+            $noticia->__SET('fechaPublicacion',($_POST["fecha_publicacion"]));
+            $noticia->__SET('Editor',($_SESSION["username"]));
         } else {
             if ($_POST["editor"] == " ") {
             //    $noticia->setFechaPublicacion('0000-00-00');
-                $noticia->setEditor("");
-                $noticia->setFechaPublicacion($_POST["fecha_publicacion"]);
+                $noticia->__SET('editor',(""));
+                $noticia->__SET('fechaPublicacion',($_POST["fecha_publicacion"]));
             }
             else{
-                $noticia->setEditor($_POST["editor"]);
+                $noticia->__SET('editor',($_POST["editor"]));
             }
         }
-        $noticia->setAutor($_SESSION["username"]);
-        $noticia->setTitulo($_POST["titulo"]);
-        $noticia->setSubtitulo($_POST["subtitulo"]);
-        $noticia->setTexto($_POST["textNews"]);
-        $noticia->setIdSeccion($_POST["id_seccion"]);
-        $noticia->setImage($media);
-        $noticia->setidNoticia($id);
+        $noticia->__SET('autor',($_SESSION["username"]));
+        $noticia->__SET('titulo',($_POST["titulo"]));
+        $noticia->__SET('subtitulo',($_POST["subtitulo"]));
+        $noticia->__SET('texto',($_POST["textNews"]));
+        $noticia->__SET('idSeccion',($_POST["id_seccion"]));
+        $noticia->__SET('image',($media));
+        $noticia->__SET('idNoticia',($id));
 
         // insertamos todas las keywords en una array y las metemos en la base de datos
         $tada = array();

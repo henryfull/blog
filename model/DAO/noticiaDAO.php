@@ -184,15 +184,15 @@ class NoticiasDao implements interface_DAO{
 			$sql,
 			array(
 
-				':id_noticia' => $noticia->getidNoticia(),
-				':editor' => $noticia->getEditor(),
-				':titulo' => $noticia->getTitulo(),
-				':subtitulo' => $noticia->getSubtitulo(),
-				':imagen' => $noticia->getImage(),
-				':texto' => $noticia->getTexto(),
-				':fecha_publicacion'  => $noticia->getFechaPublicacion(),
+				':id_noticia' => $noticia->__GET('idNoticia'),
+				':editor' => $noticia->__GET('editor'),
+				':titulo' => $noticia->__GET('titulo'),
+				':subtitulo' => $noticia->__GET('subtitulo'),
+				':imagen' => $noticia->__GET('image'),
+				':texto' => $noticia->__GET('texto'),
+				':fecha_publicacion'  => $noticia->__GET('fechaPublicacion'),
 				//	':keywords' => $noticia->getKeywords(),
-				':id_seccion' => $noticia->getIdSeccion()
+				':id_seccion' => $noticia->__GET('idSeccion')
 			)
 		);
 		return $resultado;
@@ -208,8 +208,8 @@ class NoticiasDao implements interface_DAO{
 		$resultado = $this->data_source->ejecutarActualizacion(
 			$sql,
 			array(
-				':id_noticia' => $noticia->getidNoticia(),
-				':imagen' => $noticia->getImage()
+				':id_noticia' => $noticia->__GET('idNoticia'),
+				':imagen' => $noticia->__GET('Image')
 
 			)
 		);

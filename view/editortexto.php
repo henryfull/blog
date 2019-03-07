@@ -77,6 +77,8 @@
             } 
             else{
                 print '<img class="imagen-portada" src="view/image/noticias/noimage.png" width="auto" height="auto" >' ;
+                print '<input value="" type="hidden" name="fichero_usuario" id="fileToUploadSecundary" > ';
+
             } 
             include("modules/galeryuser.php");
 

@@ -53,9 +53,9 @@ class BusinessObject{
     // Introduce todos los valores del usuario una vez se ha logueado correctamente
 	public function setterUserDates($user, $row){
     
-        $user->setUsername($row["username"]);
-        $user->setPassUser($row["password"]);
-        $user->setFirstName($row["nombre"]);
+        $user->__SET('username',($row["username"]));
+        $user->__SET('passUser',($row["password"]));
+        $user->__SET('FirstName',($row["nombre"]));
 
 /*        
         $user1->setIdUSer($row["iduser"]); 

@@ -14,6 +14,9 @@
 		private $birthday;
 		private $dateAdded;
 
+		public function __GET($k) { return $this->$k; }
+		public function __SET($k,$v) { return $this->$k = $v; }
+
 		
 		public function setIdUSer($idUSer){			
 			$this->idUSer = $idUSer;			
