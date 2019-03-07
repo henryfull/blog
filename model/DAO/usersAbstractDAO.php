@@ -1,15 +1,7 @@
 <?php
-require_once("model/conexion.php");
-require_once("model/TO/usersTO.php");
-require_once("model/dataSource.php");
 
+abstract class usersAbstractDAO {
 
-abstract class UsersDAO implements interfaceUserDAO {
-    public function __construct()
-    {
-        $this->data_source = new DataSource();
-        //    $this->cart = new Cart();
-    }
 
 	public function comprobarExisteUsuari() {
 	}

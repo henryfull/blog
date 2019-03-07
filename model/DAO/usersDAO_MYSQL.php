@@ -1,17 +1,8 @@
 <?php
-require_once("model/conexion.php");
-require_once("model/TO/usersTO.php");
-require_once("model/dataSource.php");
 
 
-class UsersDAO implements interfaceUserDAO {
-
-    public function __construct()
-    {
-        $this->data_source = new DataSource();
-        //    $this->cart = new Cart();
-    }
-
+class usersDAO_MYSQL  {
+	
 
 	public function comprobarExisteUsuari() {
 		
@@ -54,15 +45,5 @@ class UsersDAO implements interfaceUserDAO {
 	}
 
 }
-
-interface interfaceUserDAO {
-    public function __construct();
-    public function insertUser($user);
-    public function comprobarLogin();
-}
-
-
-include_once('usersDAO_MYSQL.php');
-include_once('usersDAO_Postgress.php');
-
+	
 ?>

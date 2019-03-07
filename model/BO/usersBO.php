@@ -5,7 +5,7 @@ session_start();
 class BusinessObject{
 
     public function __CONSTRUCT(){
-        $this->userDao = new UsersDao();
+        $this->userDao = new UsersDao('usersDAO_Postgress');
     //    $this->cart = new Cart();
     }
 
