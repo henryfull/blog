@@ -25,7 +25,8 @@
             else{
                 if ($_SESSION["numuser"] == 1) {
 
-                    foreach ($this->model->misnoticias() as $r): 
+                    foreach ($this->model->misnoticias() as $r):
+                        
                         include("modules/listadonoticiaseditor.php");
                     endforeach;
                 } else {

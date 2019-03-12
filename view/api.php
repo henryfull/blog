@@ -2,8 +2,8 @@
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
-
 header('content-type: application/json; charset=utf-8');
+
 $noticias = array();
 $noticias['item'] = array();
 
@@ -12,7 +12,6 @@ if (!empty($_REQUEST["id_noticia"])) {
     $result = $this->model->obtenerId();
     setJson($noticias,$result);
     echo count($result) ;
-
 
 }
 else{
@@ -41,6 +40,7 @@ function setJson($noticias,$result){
         endforeach;
     
         printJson($noticias);
+        
     } 
     else {
         error('No hay noticias');
