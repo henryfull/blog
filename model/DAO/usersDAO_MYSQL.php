@@ -1,7 +1,7 @@
 <?php
 
 
-class usersDAO_MYSQL  {
+class usersDAO_MYSQL extends NoticiaAbstractDAO  {
 	
 
 	public function comprobarExisteUsuari() {

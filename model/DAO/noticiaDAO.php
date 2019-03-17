@@ -4,10 +4,11 @@ require_once("model/TO/noticiasTO.php");
 require_once("model/dataSource.php");
 require_once("model/DAO/NoticiaAbstractDAO.php");
 
-
-class NoticiasDao 
+include_once('NoticiasDaoMYSQL.php');
+include_once('NoticiasDaoPostgres.php');
+class NoticiasDao
 {
- 
+	
 	public function __CONSTRUCT()
     {
         $this->data_source = new DataSource();
@@ -277,7 +278,7 @@ class NoticiasDao
 	}
 }
 
-include_once('NoticiasDaoMYSQL.php');
-include_once('NoticiasDaoPostgres.php');
+
 
  ?>
+ 

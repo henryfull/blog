@@ -69,7 +69,7 @@ class BusinessObject
         $media = "";
         $media = $this->imagenNoticia();
         //    echo 'Nombre foto: ' .  $media . '<br>User: ' . $_POST["id_noticias"] . "<br>";
-
+        die();
 
         empty($_POST["id_noticias"]) ? $id = 0 : $id = $_POST["id_noticias"];
         empty($_POST["keywords-text"]) ? $noticia->__SET('keywords',("noticias")) : $noticia->__SET('keywords',($_POST["keywords-text"]));
@@ -105,6 +105,13 @@ class BusinessObject
         $newKeywords = array();
 
         $arraytemp = $this->noticiasDao->CargarKeywordsSoloKeywords($_POST["id_noticias"]);
+
+        foreach ($keywordsPost as $key => $value) {
+        
+        
+        }
+
+        
 
         // Separamos las palabras clave nuevas de las ya utilizadas
         foreach ($keywordsPost as $key => $value) {
@@ -150,22 +157,22 @@ class BusinessObject
     public function imagenNoticia()
     {
 
+        print_r($_FILES);
+
         if (!empty($_FILES['fichero_usuario']['name'])) {
 
-            echo "linea 154: esta vacio";
 
             $localserver = "http://localhost/blog/";
 
-            echo 'linea 151 de noticias BO ';
-        //    print($_POST["fichero_usuario"]);
             // directorio donde guarda las imagen del producto
             $dir_subida = 'view/image/noticias/' . $_SESSION["username"] . '/post/';
             $fichero_subido = $dir_subida . basename($_FILES['fichero_usuario']['name']);
+            
             // si el fichero no exite te lo pondra en su carpeta correspondiente
             if (move_uploaded_file($_FILES['fichero_usuario']['tmp_name'], $fichero_subido)) {
                 echo "El fichero es válido y se subió con éxito.<br>";
                 $media = $localserver . trim($fichero_subido, '.');
-                echo 'El nombre de la imagen es:  ' . $_FILES['fichero_usuario']['name'] . "<br>";
+                echo 'El nombre de la imagen es:  ' . $_FILES['fichero_usuario']['name'] . "<br>";  
             } else {
                 // si el producto no tenia imagen, te pondra una por defecto
                 echo "No se ha subido el fichero!<br>";
@@ -234,3 +241,31 @@ class BusinessObject
  * Se crea la instancia del Objeto.
  * */
  
+
+function subirImagen(){
+	try{
+		if (!empty($_FILES)) {
+			if(!empty($_FILES['imagen'])){
+				$extensiones = array(0=>'image/jpg',1=>'image/jpeg',2=>'image/png');
+				$ruta_indexphp = dirname(realpath(_FILE_));
+				print_r($_FILES);
+				$ruta_fichero_origen = $_FILES['imagen']['tmp_name'];
+				$ruta_nuevo_destino = $ruta_indexphp . '/images/' . $_FILES['imagen']['name'];
+				if ( in_array($_FILES['imagen']['type'], $extensiones) ) {        
+				  	if( move_uploaded_file ( $ruta_fichero_origen, $ruta_nuevo_destino ) ) {
+				    	return "images/"+$_FILES['imagen']['name'];
+				  	}	
+				}
+				return "NULL";					
+			}
+		
+		}
+
+
+	}catch(Exception $e){
+		return "NULL";
+	}
+
+}
+
+

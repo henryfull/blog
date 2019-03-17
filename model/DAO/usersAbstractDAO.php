@@ -10,7 +10,6 @@ abstract class usersAbstractDAO {
 
 	}
 
-
 	public function existeisUsuari1($connex, $name, $password){
 		
 	}

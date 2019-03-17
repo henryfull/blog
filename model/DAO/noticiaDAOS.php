@@ -1,7 +1,17 @@
 <?php
+require_once("model/conexion.php");
+require_once("model/TO/noticiasTO.php");
+require_once("model/dataSource.php");
+require_once("model/DAO/NoticiaAbstractDAO.php");
 
-class NoticiasDaoMYSQL extends NoticiaAbstractDAO
+
+class NoticiasDao
 {
+	
+	public function __CONSTRUCT()
+    {
+        $this->data_source = new DataSource();
+    }
 
 	// ###############################
 	// METODOS PARA INSERTAR DATOS EN LA BASE DE DATOS	
@@ -266,6 +276,9 @@ class NoticiasDaoMYSQL extends NoticiaAbstractDAO
 		}
 	}
 }
- 
 
-?>
+include_once('NoticiasDaoMYSQL.php');
+include_once('NoticiasDaoPostgres.php');
+
+ ?>
+ 
