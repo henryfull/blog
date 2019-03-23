@@ -11,7 +11,7 @@ class BusinessObject
 
     public function __CONSTRUCT()
     {
-        $this->noticiasDao = new NoticiasDao('NoticiasDaoMYSQL');
+        $this->noticiasDao = new NoticiasDao();
         //    $this->cart = new Cart();
     }
 
