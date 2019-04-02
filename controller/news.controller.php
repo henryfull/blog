@@ -34,10 +34,22 @@ class NewsController{
         }
     }
     public function Api(){
-
-            require_once 'view/api.php';
-
+         require_once 'view/api.php';
     }
+
+    public function ws_service(){
+        require_once 'view/webservice/ws_server_soap.php';
+   }
+    public function ws_client(){
+        require_once 'view/common/header.php';
+        include_once 'view/webservice/ws_client_soap.php';
+        require_once 'view/common/footer.php';
+
+   }
+    public function ws_wsdl(){
+        
+        require_once 'view/webservice/webservices.wsdl';
+   }
 
     // Te lleva la vista del editor de texto de para generar la noticia
 	public function FormNoticia(){

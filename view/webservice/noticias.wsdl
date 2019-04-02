@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<definitions name="NewsServicio"
+    targetNamespace="urn:News" xmlns:tns="urn:News" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+ 
+  <message name="NewsPeticiones">
+    <part name="user" type="xsd:string" />
+  </message>
+
+  <message name="NewsRespuesta">
+    <part name="respuesta" type="xsd:array" />
+  </message>
+
+ 
+  <portType name="NewsPort">
+    <operation name="noticias">
+      <input message="tns:NewsPeticiones" />
+      <output message="tns:NewsRespuesta" />
+    </operation>
+  </portType>
+ 
+  <binding name="NewsBinding" type="tns:NewsPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+
+    <operation name="noticias">
+        <soap:operation soapAction="urn:News#noticias" />
+        <input>
+          <soap:body use="encoded" namespace="urn:News" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />       
+        </input>
+        <output>
+          <soap:body use="encoded" namespace="urn:News" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />       
+        </output>
+    </operation>
+
+  </binding>
+ 
+<service name="NewsServicio">
+  <port name="NewsPort" binding="tns:NewsBinding">
+    <soap:address location="http://localhost/blog/view/webservice/ws_server_soap.php" />
+  </port>
+</service>
+</definitions>

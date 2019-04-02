@@ -38,6 +38,11 @@ class BusinessObject
     {
         return $this->noticiasDao->Obtener($_REQUEST['id_noticia'])[0];
     }
+    // Se obtiene la id de la noticia
+    public function obtenerXId($numuser)
+    {
+        return $this->noticiasDao->tipoUser($numuser);
+    }
 
     // Se elimina una noticia en base en base a su id
     public function eliminarId()
@@ -69,7 +74,8 @@ class BusinessObject
         $media = "";
         $media = $this->imagenNoticia();
         //    echo 'Nombre foto: ' .  $media . '<br>User: ' . $_POST["id_noticias"] . "<br>";
-        die();
+    
+
 
         empty($_POST["id_noticias"]) ? $id = 0 : $id = $_POST["id_noticias"];
         empty($_POST["keywords-text"]) ? $noticia->__SET('keywords',("noticias")) : $noticia->__SET('keywords',($_POST["keywords-text"]));
@@ -79,7 +85,7 @@ class BusinessObject
 
         if ($_SESSION["numuser"] == 2) {
             $noticia->__SET('fechaPublicacion',($_POST["fecha_publicacion"]));
-            $noticia->__SET('Editor',($_SESSION["username"]));
+            $noticia->__SET('editor',($_SESSION["username"]));
         } else {
             if ($_POST["editor"] == " ") {
             //    $noticia->setFechaPublicacion('0000-00-00');
@@ -90,6 +96,8 @@ class BusinessObject
                 $noticia->__SET('editor',($_POST["editor"]));
             }
         }
+
+        
         $noticia->__SET('autor',($_SESSION["username"]));
         $noticia->__SET('titulo',($_POST["titulo"]));
         $noticia->__SET('subtitulo',($_POST["subtitulo"]));
@@ -98,20 +106,17 @@ class BusinessObject
         $noticia->__SET('image',($media));
         $noticia->__SET('idNoticia',($id));
 
+     
+
         // insertamos todas las keywords en una array y las metemos en la base de datos
         $tada = array();
-        $keywordsPost = explode(" , ", $noticia->getKeywords());
+        $keywordsPost = explode(" , ", $noticia->__GET('keywords'));
         array_pop($keywordsPost);
         $newKeywords = array();
 
         $arraytemp = $this->noticiasDao->CargarKeywordsSoloKeywords($_POST["id_noticias"]);
 
-        foreach ($keywordsPost as $key => $value) {
-        
-        
-        }
 
-        
 
         // Separamos las palabras clave nuevas de las ya utilizadas
         foreach ($keywordsPost as $key => $value) {
@@ -128,6 +133,7 @@ class BusinessObject
         //   array_push($keywords,$r["keyword"] );
 
         $this->noticiasDao->transactionUpdate($newKeywords, $keywordsPost, $id,$noticia);
+
 
 /*
         // Inserta las nuevas palabras claves en la tabla de keywords

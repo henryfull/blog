@@ -28,16 +28,18 @@ class NoticiasDao
 		$resultado = $this->data_source->ejecutarActualizacion(
 			$sql,
 			array(
-				':autor' => $noticia->getAutor(),
-				':titulo' => $noticia->getTitulo(),
-				':subtitulo' => $noticia->getSubtitulo(),
-				':imagen' => $noticia->getImage(),
-				':texto' => $noticia->getTexto(),
-				':idSeccion' => $noticia->getIdSeccion()
+				':autor' => $noticia->__GET('autor'),
+				':titulo' => $noticia->__GET('titulo'),
+				':subtitulo' => $noticia->__GET('subtitulo'),
+				':imagen' => $noticia->__GET('image'),
+				':texto' => $noticia->__GET('texto'),
+				':idSeccion' => $noticia->__GET('idSeccion')
 			)
 		);
 		return $resultado;
 	}
+
+
 
 
 	// Inserta una keyword en la base de datos
@@ -70,6 +72,15 @@ class NoticiasDao
 
 	###############################
 	// METODOS PARA CARGAR INFORMACION HACIENDO SELECTS EN LA BASE DE DATOS
+
+
+	public function tipoUser($numuser){
+		
+		$data_table = $this->data_source->ejecutarConsulta("SELECT * FROM tipo_usuario WHERE id_tipousuario = '$numuser'");
+		return $data_table;
+
+		
+	}
 
 	// Muestra todas las keywords de una noticia 
 	public function cargarKeywordsNoticia($idnoticia)
@@ -268,6 +279,8 @@ class NoticiasDao
 					}
 				}
 			}
+
+	
 
 			$this->data_source->commit();
         } 
